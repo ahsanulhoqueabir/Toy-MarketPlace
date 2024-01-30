@@ -8,7 +8,7 @@ import { authContext } from "../AuthProvider/AuthProvider";
 import SubmitButton from "../Components/buttons/SubmitButton";
 import Swal from "sweetalert2";
 const AddToy = () => {
-  const { user } = useContext(authContext);
+  const { user, allToys, setToys } = useContext(authContext);
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -40,6 +40,7 @@ const AddToy = () => {
           },
           body: JSON.stringify(data),
         });
+        setToys([...allToys, data]);
         Swal.fire({
           title: "Added!",
           text: "Your Item has been added.",
@@ -48,7 +49,6 @@ const AddToy = () => {
       }
     });
 
-    console.log(data);
     // window.location.reload();
     form.reset();
   };
@@ -134,6 +134,7 @@ const AddToy = () => {
                 name="SellerContact"
                 type="email"
                 disabled
+                className="cursor-not-allowed"
                 placeholder={user?.email}
               >
                 Seller Contact

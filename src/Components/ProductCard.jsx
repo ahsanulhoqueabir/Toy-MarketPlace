@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import CartButton from "./buttons/CartButton";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
+import { Link } from "react-router-dom";
+import { authContext } from "../AuthProvider/AuthProvider";
 
 const ProductCard = ({ data, category }) => {
+  const { user } = useContext(authContext);
   return (
     <div className="rounded-lg border-2  border-teal-200 bg-blue-100 shadow-sm w-full max-w-md mx-auto">
       {/* Product Title */}
@@ -33,7 +36,9 @@ const ProductCard = ({ data, category }) => {
         </div>
       </div>
       <div className="flex items-center p-6">
-        <CartButton className="w-full">View Details</CartButton>
+        <Link to={`${user ? `/toyDeatils/${data._id}` : "/login"}`}>
+          <CartButton className="w-full">View Details</CartButton>
+        </Link>
       </div>
     </div>
   );
