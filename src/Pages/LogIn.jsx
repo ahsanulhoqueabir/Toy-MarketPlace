@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import ExploreButton from "../Components/ExploreButton";
 import GoogleSignIn from "../Components/GoogleSignIn";
 import Button from "../Components/Button";
 import animation from "../assets/loginanimation.json";
 import Lottie from "lottie-react";
+import { authContext } from "../AuthProvider/AuthProvider";
+import InputField from "../Components/InputField";
 
 const LogIn = () => {
+  const { login } = useContext(authContext);
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.username.value;
+    const password = form.password.value;
+    login(name, password)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   return (
     <>
       <div className="lg:my-20 p-5 my-5 flex-col md:flex-row flex gap-5 lg:mx-20">
@@ -19,36 +35,19 @@ const LogIn = () => {
             Login
           </h1>
           {/* Input fields and the form started */}
-          <form action="" className="space-y-6">
-            <div className="space-y-2 text-sm">
-              <label htmlFor="username" className="block ">
-                Your name
-              </label>
-              <input
-                type="text"
-                name="username"
-                id="username"
-                placeholder="Username"
-                className="w-full px-4 py-3 rounded-md border border-indigo-300 focus:outline-none   "
-              />
-            </div>
-            <div className="space-y-2 text-sm">
-              <label htmlFor="password" className="block ">
-                Password
-              </label>
-              <input
-                type="password"
-                name="password"
-                id="password"
-                placeholder="Password"
-                className="w-full px-4 py-3 rounded-md border border-indigo-300 focus:outline-none   "
-              />
-              <div className="flex text-xs ">
-                <Link to="/signup" className="hover:underline">
-                  Forgot Password?
-                </Link>
-              </div>
-            </div>
+          <form onSubmit={handleLogin} className="space-y-6">
+            <InputField type="text" name="username" placeholder="Username">
+              {" "}
+              Your Name
+            </InputField>
+            <InputField
+              type="password"
+              name="password"
+              id="password"
+              placeholder="Password"
+            >
+              Your Password
+            </InputField>
             <div className="flex justify-center">
               <ExploreButton className={"w-full"}>Log In</ExploreButton>
             </div>
