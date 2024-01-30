@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import PageHeader from "../Components/PageHeader";
 import { authContext } from "../AuthProvider/AuthProvider";
-import EachToyRow from "../Components/EachToyRow";
 import notfound from "../assets/notfound.json";
 import Lottie from "lottie-react";
 import { Link } from "react-router-dom";
 import ExploreButton from "../Components/buttons/ExploreButton";
+import MyToyRow from "../Components/MyToyRow";
 const MyToys = () => {
   const { user } = useContext(authContext);
   const [myToys, setMyToys] = useState([]);
@@ -18,9 +18,9 @@ const MyToys = () => {
   return (
     <div>
       <PageHeader>My Toys</PageHeader>
-      <div className="py-10">
+      <div className="py-10 divide-y-2">
         {myToys.length > 0 ? (
-          myToys.map((toy, idx) => <EachToyRow key={idx} toy={toy} />)
+          myToys.map((toy, idx) => <MyToyRow key={idx} toy={toy} />)
         ) : (
           <div>
             <h1 className="text-center text-2xl font-bold">

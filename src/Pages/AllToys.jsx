@@ -9,7 +9,7 @@ const AllToys = () => {
   return (
     <div>
       <PageHeader>All Toys</PageHeader>
-      <div className="py-10">
+      <div className="py-10 divide-y-2">
         {allToys.map((toy, idx) => (
           <EachToyRow key={idx} toy={toy} />
         ))}

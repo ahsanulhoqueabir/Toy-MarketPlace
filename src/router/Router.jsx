@@ -11,6 +11,7 @@ import LoadingPage from "../Pages/LoadingPage";
 import AddToy from "../Pages/AddToy";
 import MyToys from "../Pages/MyToys";
 import PrivateRoute from "./PrivateRoute";
+import UpdatePage from "../Pages/UpdatePage";
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +38,12 @@ export const router = createBrowserRouter([
             <AddToy />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "update/:id",
+        element: <UpdatePage />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/CertainToyData/${params.id}`),
       },
       {
         path: "blog",
