@@ -4,7 +4,7 @@ import ShopByCategory from "./ShopByCategory";
 
 const Home = () => {
   return (
-    <div className="pb-44">
+    <div className="pb-[100px]">
       <Banner />
       <Gallery />
       <ShopByCategory />

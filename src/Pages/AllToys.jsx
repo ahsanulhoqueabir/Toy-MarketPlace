@@ -1,12 +1,21 @@
-import React from 'react';
-import PageHeader from '../Components/PageHeader';
+import React, { useContext, useState } from "react";
+import PageHeader from "../Components/PageHeader";
+import { authContext } from "../AuthProvider/AuthProvider";
+import EachToyRow from "../Components/EachToyRow";
 
 const AllToys = () => {
-    return (
-        <div>
-            <PageHeader>All Toys</PageHeader>
-        </div>
-    );
+  const [Toys, setToys] = useState([]);
+  const { allToys } = useContext(authContext);
+  return (
+    <div>
+      <PageHeader>All Toys</PageHeader>
+      <div className="py-10">
+        {allToys.map((toy, idx) => (
+          <EachToyRow key={idx} toy={toy} />
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default AllToys;

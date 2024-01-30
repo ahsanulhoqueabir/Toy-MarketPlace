@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import Button from "./Components/Button";
+import Button from "./Components/buttons/Button";
 import NavBar from "./Components/NavBar";
 
 const App = () => {

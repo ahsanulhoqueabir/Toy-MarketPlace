@@ -2,7 +2,7 @@ import Lottie from "lottie-react";
 import React, { useContext } from "react";
 import signupanimation from "../assets/signupanimation.json";
 import GoogleSignIn from "../Components/GoogleSignIn";
-import ExploreButton from "../Components/ExploreButton";
+import ExploreButton from "../Components/buttons/ExploreButton";
 import { Link } from "react-router-dom";
 import InputField from "../Components/InputField";
 import { authContext } from "../AuthProvider/AuthProvider";

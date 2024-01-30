@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../Components/Button";
+import Button from "../Components/buttons/Button";
 
 const AdminPanel = () => {
   const handleSubmit = (e) => {

@@ -1,5 +1,5 @@
 import React from "react";
-import CartButton from "./CartButton";
+import CartButton from "./buttons/CartButton";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
 
 const ProductCard = ({ data, category }) => {

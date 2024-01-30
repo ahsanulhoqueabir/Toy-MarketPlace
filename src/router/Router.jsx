@@ -6,6 +6,10 @@ import AdminPanel from "../Pages/AdminPanel";
 import LogIn from "../Pages/LogIn";
 import SignUP from "../Pages/SignUP";
 import AllToys from "../Pages/AllToys";
+import ToyDetails from "../Pages/ToyDetails";
+import LoadingPage from "../Pages/LoadingPage";
+import AddToy from "../Pages/AddToy";
+import MyToys from "../Pages/MyToys";
 
 export const router = createBrowserRouter([
   {
@@ -15,21 +19,30 @@ export const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       {
         path: "alltoys",
-        element: <AllToys/>,
+        element: <AllToys />,
       },
       {
         path: "mytoys",
-        element: <h1>My Toys</h1>,
+        element: <MyToys />,
       },
       {
         path: "addtoy",
-        element: <h1>Add Toys</h1>,
+        element: <AddToy />,
       },
       {
         path: "blog",
         element: <h1>Blog</h1>,
       },
+      {
+        path: "toyDeatils/:id",
+        element: <ToyDetails />,
+        loader: ({ params }) => params.id,
+      },
     ],
+  },
+  {
+    path: "loadingpage",
+    element: <LoadingPage />,
   },
   {
     path: "login",

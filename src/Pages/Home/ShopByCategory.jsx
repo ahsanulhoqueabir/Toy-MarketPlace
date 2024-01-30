@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import SectionHeadline from "../../Components/SectionHeadline";
 import { Tab, TabList, TabPanel, Tabs } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
-import CartButton from "../../Components/CartButton";
+import CartButton from "../../Components/buttons/CartButton";
 import ProductCard from "../../Components/ProductCard";
 const ShopByCategory = () => {
   const [currTab, setcurrTab] = useState([]);

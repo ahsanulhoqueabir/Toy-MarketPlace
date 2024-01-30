@@ -1,7 +1,7 @@
 import React from "react";
-import cartAni from "../assets/CartAnimation.json";
+import cartAni from "../../assets/CartAnimation.json";
 import Lottie from "lottie-react";
-import cn from "../utilities/cn";
+import cn from "../../utilities/cn";
 const CartButton = ({ children, className, ...rest }) => {
   return (
     <button

@@ -1,10 +1,21 @@
 import React, { useContext } from "react";
-import Button from "./Button";
-import LogInButton from "./LogInButton";
+import Button from "./buttons/Button";
+import LogInButton from "./buttons/LogInButton";
 import { Link, NavLink } from "react-router-dom";
 import { authContext } from "../AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
+import LoadingPage from "../Pages/LoadingPage";
 const NavBar = () => {
-  const { user } = useContext(authContext);
+  const { user, logout, loading } = useContext(authContext);
+  if (loading) {
+    return <LoadingPage />;
+    // return <Link to="/loadingpage"></Link>;
+  }
+  const handleLogout = () => {
+    logout()
+      .then(toast("Successfully Logout"))
+      .catch((err) => toast.error(err));
+  };
   return (
     <div className="navbar  lg:px-20">
       <div className="navbar-start">
@@ -159,7 +170,7 @@ const NavBar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <LogInButton>Log Out</LogInButton>
+          <LogInButton onClick={handleLogout}>Log Out</LogInButton>
         ) : (
           <Link to="/login">
             <LogInButton>Log In</LogInButton>

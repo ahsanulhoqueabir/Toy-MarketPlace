@@ -1,15 +1,19 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import ExploreButton from "../Components/ExploreButton";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import ExploreButton from "../Components/buttons/ExploreButton";
 import GoogleSignIn from "../Components/GoogleSignIn";
-import Button from "../Components/Button";
+import Button from "../Components/buttons/Button";
 import animation from "../assets/loginanimation.json";
 import Lottie from "lottie-react";
 import { authContext } from "../AuthProvider/AuthProvider";
 import InputField from "../Components/InputField";
+import { toast } from "react-toastify";
 
 const LogIn = () => {
   const { login } = useContext(authContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const {from} = location.state || { from: { pathname: "/" } };
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -17,10 +21,12 @@ const LogIn = () => {
     const password = form.password.value;
     login(name, password)
       .then((res) => {
-        console.log(res);
+        toast(`Welcome Back Mr. ${res.user.displayName}`);
+        navigate(from);
       })
       .catch((err) => {
-        console.log(err);
+        // console.log(err);
+        toast.error(err.message);
       });
   };
   return (
