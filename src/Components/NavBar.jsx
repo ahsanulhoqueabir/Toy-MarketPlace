@@ -161,7 +161,9 @@ const NavBar = () => {
         {user ? (
           <LogInButton>Log Out</LogInButton>
         ) : (
-          <LogInButton>Log In</LogInButton>
+          <Link to="/login">
+            <LogInButton>Log In</LogInButton>
+          </Link>
         )}
       </div>
     </div>

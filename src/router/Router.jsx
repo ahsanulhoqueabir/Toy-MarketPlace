@@ -3,6 +3,7 @@ import App from "../App";
 import Home from "../Pages/Home";
 import ErrorPage from "../Pages/ErrorPage";
 import AdminPanel from "../Pages/AdminPanel";
+import LogIn from "../Pages/LogIn";
 
 export const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ export const router = createBrowserRouter([
         element: <h1>Blog</h1>,
       },
     ],
+  },
+  {
+    path: "login",
+    element: <LogIn />,
   },
   {
     path: "AdminPanel",

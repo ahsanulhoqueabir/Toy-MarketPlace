@@ -2,4 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+.textEffect1 > span{
 
+    -webkit-text-stroke: 1px white; 
+}
+.textEffect1 > span:hover{
+    color: green;
+}
+span:has(~span:hover){
+    color: black;
+}
