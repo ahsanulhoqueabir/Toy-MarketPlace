@@ -1,14 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.textEffect1 > span{
-
-    -webkit-text-stroke: 1px white; 
+body {
+  @apply bg-[#f3f9fc];
 }
-.textEffect1 > span:hover{
-    color: green;
+.textEffect1 > span {
+  -webkit-text-stroke: 1px white;
 }
-span:has(~span:hover){
-    color: black;
+.textEffect1 > span:hover {
+  color: green;
+}
+span:has(~ span:hover) {
+  color: black;
 }
