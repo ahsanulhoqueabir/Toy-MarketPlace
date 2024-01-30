@@ -43,7 +43,7 @@ const Gallery = () => {
   const gallery2 = [];
   for (let i = 0; i < gallery.length; ) {
     let div = [];
-    for (let j = 0; j < 3; j++) {
+    for (let j = 0; j < 5; j++) {
       div.push(gallery[i]);
       i++;
     }
@@ -53,23 +53,35 @@ const Gallery = () => {
   return (
     <div>
       <SectionHeadline>Gallery</SectionHeadline>
-      <div className="gallery px-3 lg:px-20 grid grid-cols-1 gap-3">
+      <div className="gallery  grid grid-cols-1 gap-3 ">
         {gallery2.map((divImg, i) => (
-          <div className={`flex gap-3 ${i % 2 == 1 && "flex-row-reverse"}`}>
-            <img
-              className={`object-cover  ${divImg[1] ? "w-1/2" : "w-full"}`}
-              src={divImg[0]?.img}
-              alt=""
-            />
-            <div className="flex flex-col gap-2">
+          <div
+            className={`flex flex-col gap-3  ${
+              i % 2 == 1 && "flex-col-reverse "
+            }`}
+          >
+            <div className="flex gap-3 ">
+              {divImg.slice(0, 3).map((curr, ind) => (
+                <div className="w-full hover:scale-[1.018]">
+                  <img
+                    className={`h-[320px] object-cover w-full  `}
+                    src={divImg[ind]?.img}
+                    alt=""
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="flex gap-3  hover:scale-[1.018]">
               <img
-                className="object-cover w-full transition-all ease-linear duration-150"
-                src={divImg[1]?.img}
+                className={`h-[320px] object-cover ${
+                  divImg[4] ? "w-1/3" : "w-full"
+                }`}
+                src={divImg[3]?.img}
                 alt=""
               />
               <img
-                className="object-cover w-full"
-                src={divImg[2]?.img}
+                className="h-[320px]  hover:scale-[1.018] object-cover w-2/3"
+                src={divImg[4]?.img}
                 alt=""
               />
             </div>
