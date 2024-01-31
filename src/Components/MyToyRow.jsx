@@ -7,7 +7,7 @@ import { FaRegEdit } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const MyToyRow = ({ toy }) => {
-  const { user, allToys, setToys } = useContext(authContext);
+  const { user, allToys, setToys, myToys, setMyToys } = useContext(authContext);
 
   const navigate = useNavigate();
   const {
@@ -34,13 +34,13 @@ const MyToyRow = ({ toy }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/AllToysData?id=${id}`, {
+        fetch(`https://toy-market-server-omega.vercel.app/AllToysData?id=${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())
           .then((data) => {
-            const newToys = allToys.filter((toy) => toy._id !== id);
-            setToys(newToys);
+            const newToys = myToys.filter((toy) => toy._id !== id);
+            setMyToys(newToys);
             navigate("/mytoys");
           });
         Swal.fire({

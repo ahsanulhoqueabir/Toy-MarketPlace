@@ -16,7 +16,7 @@ const AdminPanel = () => {
       SellerName: form.SellerName.value,
       SellerContact: form.SellerContact.value,
     };
-    fetch("http://localhost:3000/allToys", {
+    fetch("https://toy-market-server-omega.vercel.app/allToys", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

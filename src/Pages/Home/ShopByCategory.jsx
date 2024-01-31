@@ -8,14 +8,14 @@ const ShopByCategory = () => {
   const [currTab, setcurrTab] = useState([]);
   const [category, setCategory] = useState("Astronomy");
   useEffect(() => {
-    fetch(`http://localhost:3000/getDataByCategory?category=${category}`)
+    fetch(`https://toy-market-server-omega.vercel.app/getDataByCategory?category=${category}`)
       .then((res) => res.json())
       .then((data) => setcurrTab(data));
   }, []);
   const handleClick = (e) => {
     const data = e.target.innerHTML;
     setCategory(data);
-    fetch(`http://localhost:3000/getDataByCategory?category=${data}`)
+    fetch(`https://toy-market-server-omega.vercel.app/getDataByCategory?category=${data}`)
       .then((res) => res.json())
       .then((data) => setcurrTab(data));
   };

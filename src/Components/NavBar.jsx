@@ -8,8 +8,8 @@ import LoadingPage from "../Pages/LoadingPage";
 const NavBar = () => {
   const { user, logout, loading } = useContext(authContext);
   if (loading) {
-    return <LoadingPage />;
-    // return <Link to="/loadingpage"></Link>;
+    // return <LoadingPage />;
+    return <Link to="/loadingpage"></Link>;
   }
   const handleLogout = () => {
     logout()
@@ -89,7 +89,7 @@ const NavBar = () => {
                 className={`bg-blue-100 px-5 rounded-lg font-semibold hover:bg-blue-200 ${({
                   isActive,
                 }) => isActive && "bg-blue-300"}}`}
-                to="blog"
+                to="blogs"
               >
                 Blog
               </NavLink>
@@ -161,7 +161,7 @@ const NavBar = () => {
               className={`bg-blue-100 px-5 rounded-lg font-semibold hover:bg-blue-200 ${({
                 isActive,
               }) => isActive && "bg-blue-300"}}`}
-              to="blog"
+              to="blogs"
             >
               Blog
             </NavLink>

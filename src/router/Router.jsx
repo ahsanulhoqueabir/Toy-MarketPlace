@@ -12,6 +12,7 @@ import AddToy from "../Pages/AddToy";
 import MyToys from "../Pages/MyToys";
 import PrivateRoute from "./PrivateRoute";
 import UpdatePage from "../Pages/UpdatePage";
+import Blogs from "../Pages/Blogs/Blogs";
 
 export const router = createBrowserRouter([
   {
@@ -43,7 +44,7 @@ export const router = createBrowserRouter([
         path: "update/:id",
         element: <UpdatePage />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/CertainToyData/${params.id}`),
+          fetch(`https://toy-market-server-omega.vercel.app/CertainToyData/${params.id}`),
       },
       {
         path: "blog",
@@ -57,6 +58,10 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) => params.id,
+      },
+      {
+        path: "blogs",
+        element: <Blogs />,
       },
     ],
   },
