@@ -23,7 +23,7 @@ const AuthProvider = ({ children }) => {
     fetch("https://toy-market-server-omega.vercel.app/allToysData")
       .then((res) => res.json())
       .then((data) => setToys(data));
-  }, []);
+  }, [allToys]);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);

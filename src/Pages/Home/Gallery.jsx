@@ -56,6 +56,7 @@ const Gallery = () => {
       <div className="gallery  grid grid-cols-1 gap-3 ">
         {gallery2.map((divImg, i) => (
           <div
+            key={i}
             className={`flex flex-col gap-3  ${
               i % 2 == 1 && "flex-col-reverse "
             }`}
@@ -64,7 +65,7 @@ const Gallery = () => {
               {divImg.slice(0, 3).map((curr, ind) => (
                 <div className="w-full hover:scale-[1.018]">
                   <img
-                    className={`h-[320px] object-cover w-full  `}
+                    className={`h-40 lg:h-[320px] object-cover w-full  `}
                     src={divImg[ind]?.img}
                     alt=""
                   />
@@ -73,14 +74,14 @@ const Gallery = () => {
             </div>
             <div className="flex gap-3  hover:scale-[1.018]">
               <img
-                className={`h-[320px] object-cover ${
+                className={` h-40 lg:h-[320px] object-cover ${
                   divImg[4] ? "w-1/3" : "w-full"
                 }`}
                 src={divImg[3]?.img}
                 alt=""
               />
               <img
-                className="h-[320px]  hover:scale-[1.018] object-cover w-2/3"
+                className=" h-40 lg:h-[320px]  hover:scale-[1.018] object-cover w-2/3"
                 src={divImg[4]?.img}
                 alt=""
               />

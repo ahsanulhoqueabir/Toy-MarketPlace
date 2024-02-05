@@ -1,11 +1,12 @@
 import React, { useContext } from "react";
 import Button from "./buttons/Button";
 import LogInButton from "./buttons/LogInButton";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { authContext } from "../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 import LoadingPage from "../Pages/LoadingPage";
 const NavBar = () => {
+  const navigate = useNavigate();
   const { user, logout, loading } = useContext(authContext);
   if (loading) {
     // return <LoadingPage />;
@@ -13,7 +14,7 @@ const NavBar = () => {
   }
   const handleLogout = () => {
     logout()
-      .then(toast("Successfully Logout"))
+      .then(toast("Successfully Logout"), navigate("/"))
       .catch((err) => toast.error(err));
   };
   return (
