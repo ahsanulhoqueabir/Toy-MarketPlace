@@ -6,7 +6,9 @@ import Lottie from "lottie-react";
 import { Link } from "react-router-dom";
 import ExploreButton from "../Components/buttons/ExploreButton";
 import MyToyRow from "../Components/MyToyRow";
+import { Title } from "../utilities/Title";
 const MyToys = () => {
+  Title("My Toys");
   const { user } = useContext(authContext);
   const [myToys, setMyToys] = useState([]);
   useEffect(() => {

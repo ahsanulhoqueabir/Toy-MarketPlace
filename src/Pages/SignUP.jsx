@@ -6,8 +6,10 @@ import ExploreButton from "../Components/buttons/ExploreButton";
 import { Link } from "react-router-dom";
 import InputField from "../Components/InputField";
 import { authContext } from "../AuthProvider/AuthProvider";
+import { Title } from "../utilities/Title";
 
 const SignUP = () => {
+  Title("Sign Up");
   const { signinwithemail, setUser } = useContext(authContext);
   const handleSignup = (e) => {
     e.preventDefault();

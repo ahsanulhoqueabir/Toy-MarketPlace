@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import PageHeader from "../Components/PageHeader";
+import { Title } from "../utilities/Title";
 
 const ToyDetails = () => {
   const [toy, setToy] = useState({});
@@ -22,6 +23,8 @@ const ToyDetails = () => {
     ToyStock,
     _id,
   } = toy;
+  Title(`${ToyName}`);
+
   return (
     <div>
       <PageHeader>

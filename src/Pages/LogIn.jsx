@@ -8,8 +8,10 @@ import Lottie from "lottie-react";
 import { authContext } from "../AuthProvider/AuthProvider";
 import InputField from "../Components/InputField";
 import { toast } from "react-toastify";
+import { Title } from "../utilities/Title";
 
 const LogIn = () => {
+  Title("Login");
   const { login } = useContext(authContext);
   const location = useLocation();
   const navigate = useNavigate();

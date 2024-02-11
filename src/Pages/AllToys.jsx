@@ -2,8 +2,10 @@ import React, { useContext, useState } from "react";
 import PageHeader from "../Components/PageHeader";
 import { authContext } from "../AuthProvider/AuthProvider";
 import EachToyRow from "../Components/EachToyRow";
+import { Title } from "../utilities/Title";
 
 const AllToys = () => {
+  Title('All Toys')
   const { allToys } = useContext(authContext);
   const [Toys, setToys] = useState([...allToys]);
   // console.log(Toys);

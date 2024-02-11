@@ -7,7 +7,9 @@ import Lottie from "lottie-react";
 import { authContext } from "../AuthProvider/AuthProvider";
 import SubmitButton from "../Components/buttons/SubmitButton";
 import Swal from "sweetalert2";
+import { Title } from "../utilities/Title";
 const AddToy = () => {
+  Title("Add a Toy");
   const { user, allToys, setToys } = useContext(authContext);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -49,7 +51,6 @@ const AddToy = () => {
       }
     });
 
-    // window.location.reload();
     form.reset();
   };
   return (
