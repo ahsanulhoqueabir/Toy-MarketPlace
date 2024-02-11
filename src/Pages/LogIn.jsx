@@ -13,7 +13,8 @@ const LogIn = () => {
   const { login } = useContext(authContext);
   const location = useLocation();
   const navigate = useNavigate();
-  const {from} = location.state || { from: { pathname: "/" } };
+  const { from } = location.state || { from: { pathname: "/" } };
+
   const handleLogin = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -22,7 +23,8 @@ const LogIn = () => {
     login(name, password)
       .then((res) => {
         toast(`Welcome Back Mr. ${res.user.displayName}`);
-        navigate(from);
+        // navigate(from);
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         // console.log(err);
