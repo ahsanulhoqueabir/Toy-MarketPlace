@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Button from "./buttons/Button";
 import { authContext } from "../AuthProvider/AuthProvider";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const EachToyRow = ({ toy }) => {
   const { user } = useContext(authContext);
@@ -22,7 +22,6 @@ const EachToyRow = ({ toy }) => {
     user
       ? navigate(`/toyDeatils/${id}`)
       : navigate("/login", { state: { from: link } });
-    // navigate(`/toyDeatils/${id}`);
   };
   return (
     <div
