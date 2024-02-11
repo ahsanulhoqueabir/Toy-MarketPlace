@@ -33,7 +33,7 @@ const AddToy = () => {
       confirmButtonText: "Yes, add it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch("https://toy-market-server-omega.vercel.app/allToys", {
+        fetch("http://localhost:3000/allToys", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -105,14 +105,17 @@ const AddToy = () => {
               >
                 Toy Stock
               </InputField>
-              <InputField
-                required
-                name="ToyCategory"
-                type="text"
-                placeholder="Toy Category"
-              >
-                Toy Category
-              </InputField>
+              <div className="space-y-1">
+                <label>Toy Category</label>
+                <select
+                  className="w-full  px-4 py-[10px] rounded-md border border-indigo-300 focus:outline-none"
+                  name="ToyCategory"
+                >
+                  <option value="Astronomy">Astronomy</option>
+                  <option value="Magnet">Magnet</option>
+                  <option value="Engineering">Engineering</option>
+                </select>
+              </div>
               <InputField
                 required
                 name="ToyRating"

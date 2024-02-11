@@ -53,7 +53,15 @@ const Gallery = () => {
   return (
     <div>
       <SectionHeadline>Gallery</SectionHeadline>
-      <div className="gallery  grid grid-cols-1 gap-3 ">
+      <div
+        data-aos="fade-up"
+        data-aos-offset="200"
+        data-aos-delay="50"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+        data-aos-anchor-placement="top-center"
+        className="gallery  grid grid-cols-1 gap-3 "
+      >
         {gallery2.map((divImg, i) => (
           <div
             key={i}

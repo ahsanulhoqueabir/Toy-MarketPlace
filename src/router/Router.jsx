@@ -44,7 +44,7 @@ export const router = createBrowserRouter([
         path: "update/:id",
         element: <UpdatePage />,
         loader: ({ params }) =>
-          fetch(`https://toy-market-server-omega.vercel.app/CertainToyData/${params.id}`),
+          fetch(`http://localhost:3000/CertainToyData/${params.id}`),
       },
       {
         path: "blog",

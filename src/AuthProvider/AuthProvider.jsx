@@ -20,7 +20,7 @@ const AuthProvider = ({ children }) => {
 
   // all useEffect ---------------------------
   useEffect(() => {
-    fetch("https://toy-market-server-omega.vercel.app/allToysData")
+    fetch("http://localhost:3000/allToysData")
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, [allToys]);
@@ -32,7 +32,7 @@ const AuthProvider = ({ children }) => {
   }, []);
   useEffect(() => {
     if (user?.email) {
-      fetch(`https://toy-market-server-omega.vercel.app/allToysData?SellerContact=${user?.email}`)
+      fetch(`http://localhost:3000/allToysData?SellerContact=${user?.email}`)
         .then((res) => res.json())
         .then((data) => setMyToys(data));
     }

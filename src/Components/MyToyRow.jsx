@@ -34,7 +34,7 @@ const MyToyRow = ({ toy }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://toy-market-server-omega.vercel.app/AllToysData?id=${id}`, {
+        fetch(`http://localhost:3000/AllToysData?id=${id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

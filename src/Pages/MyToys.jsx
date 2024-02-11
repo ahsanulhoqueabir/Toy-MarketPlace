@@ -10,7 +10,7 @@ const MyToys = () => {
   const { user } = useContext(authContext);
   const [myToys, setMyToys] = useState([]);
   useEffect(() => {
-    fetch(`https://toy-market-server-omega.vercel.app/UsersToysData?Contact=${user?.email}`)
+    fetch(`http://localhost:3000/UsersToysData?Contact=${user?.email}`)
       .then((res) => res.json())
       .then((data) => setMyToys(data));
   }, [user]);

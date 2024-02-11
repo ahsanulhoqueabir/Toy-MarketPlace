@@ -38,7 +38,7 @@ const UpdatePage = () => {
       SellerName: form.SellerName.value,
       SellerContact: user?.email,
     };
-    fetch(`https://toy-market-server-omega.vercel.app/UpdatesToyData/${_id}`, {
+    fetch(`http://localhost:3000/UpdatesToyData/${_id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

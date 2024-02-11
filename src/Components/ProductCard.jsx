@@ -1,13 +1,41 @@
 import React, { useContext } from "react";
 import CartButton from "./buttons/CartButton";
 import { FaBangladeshiTakaSign } from "react-icons/fa6";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { authContext } from "../AuthProvider/AuthProvider";
+import Swal from "sweetalert2";
 
 const ProductCard = ({ data, category }) => {
   const { user } = useContext(authContext);
+  const navigate = useNavigate();
+  const handleRedirect = () => {
+    if (user) {
+      return `/toyDeatils/${data._id}`;
+    } else {
+      Swal.fire({
+        title: "Want to LogIn?",
+        text: "Without login you can't see the details of the product",
+        icon: "info",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/login");
+        } else {
+          navigate("/");
+        }
+      });
+    }
+  };
   return (
-    <div className="rounded-lg border-2  border-teal-200 bg-blue-100 shadow-sm w-full max-w-md mx-auto">
+    <div
+      data-aos="zoom-in-up"
+      data-aos-delay="50"
+      data-aos-duration="1000"
+      className="rounded-lg border-2  border-teal-200 bg-blue-100 shadow-sm w-full max-w-md mx-auto"
+    >
       {/* Product Title */}
       <div className="flex flex-col space-y-1.5 p-6">
         <h3 className="text-2xl font-semibold ">{data.ToyName}</h3>
@@ -36,9 +64,11 @@ const ProductCard = ({ data, category }) => {
         </div>
       </div>
       <div className="flex items-center p-6">
-        <Link to={`${user ? `/toyDeatils/${data._id}` : "/login"}`}>
-          <CartButton className="w-full">View Details</CartButton>
-        </Link>
+        {/* <Link to={`${user ? `/toyDeatils/${data._id}` : "/login"}`}> */}
+        <CartButton onClick={handleRedirect} className="w-full">
+          View Details
+        </CartButton>
+        {/* </Link> */}
       </div>
     </div>
   );

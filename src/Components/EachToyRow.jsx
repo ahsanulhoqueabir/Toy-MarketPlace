@@ -22,7 +22,12 @@ const EachToyRow = ({ toy }) => {
     // navigate(`/toyDeatils/${id}`);
   };
   return (
-    <div className="py-5 items-center flex lg:w-2/3 mx-auto gap-3">
+    <div
+      data-aos="zoom-in-up"
+      data-aos-delay="50"
+      data-aos-duration="1000"
+      className="py-5 items-center flex lg:w-2/3 mx-auto gap-3"
+    >
       <img className="size-12 object-cover rounded" src={ToyImage} alt="" />
       <div className="flex flex-1 justify-between  gap-3  items-center">
         <div className=" w-full ">
