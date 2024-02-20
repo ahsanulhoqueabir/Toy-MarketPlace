@@ -3,17 +3,23 @@
 [![Instagram][instagram-shield]][instagram-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-# A Simple Vite-React App template
+# CRUD Application using Node.js, Express and MongoDB
 
-## Included
+This project is a simple implementation of the Create Read Update Delete (CRUD) functionality in an
+application using Node.js, Express framework and MongoDB as the database system.
 
-- Tailwind
-- Added utility function cn() to overwriting tailwind className and others funtionality to components
-- daisyUI
-- React Icon
-- React Router
-- Lottie Animation
-- eslint props warning disabled
+## Features:
+
+1. User Registration - Allows users to create new accounts with username, email and password.
+2. User Login - Authenticates existing users by providing their credentials.
+3. Add/Edit Product - Users can add or edit products in the inventory list.
+4. Delete Product - Users can delete products from the inventory list.
+5. Search for Products - Users can search for specific products based on name or category.
+6. Responsive Design - The application has been designed keeping mobile devices in mind.
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development purposes.
 
 <!-- Social Media Link -->
 

@@ -7,7 +7,7 @@ const ToyDetails = () => {
   const [toy, setToy] = useState({});
   const id = useLoaderData();
   useEffect(() => {
-    fetch(`http://localhost:3000/CertainToyData/${id}`)
+    fetch(`https://toy-market-server-orcin.vercel.app/CertainToyData/${id}`)
       .then((res) => res.json())
       .then((data) => setToy(data[0]));
   }, []);

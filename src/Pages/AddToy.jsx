@@ -35,7 +35,7 @@ const AddToy = () => {
       confirmButtonText: "Yes, add it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch("http://localhost:3000/allToys", {
+        fetch("https://toy-market-server-orcin.vercel.app/allToys", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -20,11 +20,12 @@ const AuthProvider = ({ children }) => {
 
   // all useEffect ---------------------------
   useEffect(() => {
-    fetch("http://localhost:3000/allToysData")
+    fetch("https://toy-market-server-orcin.vercel.app/allToysData")
       .then((res) => res.json())
       .then((data) => setToys(data));
   }, [allToys]);
   useEffect(() => {
+    setLoading(true);
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
       setLoading(false);
@@ -32,7 +33,9 @@ const AuthProvider = ({ children }) => {
   }, []);
   useEffect(() => {
     if (user?.email) {
-      fetch(`http://localhost:3000/allToysData?SellerContact=${user?.email}`)
+      fetch(
+        `https://toy-market-server-orcin.vercel.app/allToysData?SellerContact=${user?.email}`
+      )
         .then((res) => res.json())
         .then((data) => setMyToys(data));
     }

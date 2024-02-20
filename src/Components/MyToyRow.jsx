@@ -34,9 +34,12 @@ const MyToyRow = ({ toy }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/AllToysData?id=${id}`, {
-          method: "DELETE",
-        })
+        fetch(
+          `https://toy-market-server-orcin.vercel.app/AllToysData?id=${id}`,
+          {
+            method: "DELETE",
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             const newToys = myToys.filter((toy) => toy._id !== id);
