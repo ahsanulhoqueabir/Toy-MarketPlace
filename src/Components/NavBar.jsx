@@ -171,7 +171,29 @@ const NavBar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <LogInButton onClick={handleLogout}>Log Out</LogInButton>
+          <div className="dropdown dropdown-end">
+            <div tabIndex={0} role="button" className="btn  btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <img
+                  title={user.displayName ? user.displayName : user.email}
+                  alt="Tailwind CSS Navbar component"
+                  src={
+                    user.photoURL
+                      ? photoURL
+                      : "https://i.ibb.co/h22xFhW/png-transparent-avatar-people-person-business-user-man-character-set-icon-portrait.png"
+                  }
+                />
+              </div>
+            </div>
+            <ul
+              tabIndex={0}
+              className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <p onClick={handleLogout}>Logout</p>
+              </li>
+            </ul>
+          </div>
         ) : (
           <Link to="/login">
             <LogInButton>Log In</LogInButton>

@@ -53,15 +53,7 @@ const Gallery = () => {
   return (
     <div>
       <SectionHeadline>Gallery</SectionHeadline>
-      <div
-        data-aos="fade-up"
-        data-aos-offset="200"
-        data-aos-delay="50"
-        data-aos-duration="1000"
-        data-aos-easing="ease-in-out"
-        data-aos-anchor-placement="top-center"
-        className="gallery  grid grid-cols-1 gap-3 "
-      >
+      <div className="gallery  grid grid-cols-1 gap-3 ">
         {gallery2.map((divImg, i) => (
           <div
             key={i}
@@ -71,8 +63,12 @@ const Gallery = () => {
           >
             <div className="flex gap-3 ">
               {divImg.slice(0, 3).map((curr, ind) => (
-                <div className="w-full hover:scale-[1.018]">
+                <div className="w-full ">
                   <img
+                    data-aos="zoom-in"
+                    data-aos-delay="50"
+                    data-aos-duration="1000"
+                    data-aos-easing="ease-in-out"
                     className={`h-40 lg:h-[320px] object-cover w-full  `}
                     src={divImg[ind]?.img}
                     alt=""
@@ -80,8 +76,12 @@ const Gallery = () => {
                 </div>
               ))}
             </div>
-            <div className="flex gap-3  hover:scale-[1.018]">
+            <div className="flex gap-3  ">
               <img
+                data-aos="zoom-in-right"
+                data-aos-delay="50"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in-out"
                 className={` h-40 lg:h-[320px] object-cover ${
                   divImg[4] ? "w-1/3" : "w-full"
                 }`}
@@ -89,7 +89,11 @@ const Gallery = () => {
                 alt=""
               />
               <img
-                className=" h-40 lg:h-[320px]  hover:scale-[1.018] object-cover w-2/3"
+                data-aos="fade-up-left"
+                data-aos-delay="50"
+                data-aos-duration="1000"
+                data-aos-easing="ease-in-out"
+                className=" h-40 lg:h-[320px]   object-cover w-2/3"
                 src={divImg[4]?.img}
                 alt=""
               />

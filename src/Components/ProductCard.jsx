@@ -13,7 +13,7 @@ const ProductCard = ({ data, category }) => {
       return `/toyDeatils/${data._id}`;
     } else {
       Swal.fire({
-        title: "Want to LogIn?",
+        title: "You have to log in first to view details",
         text: "Without login you can't see the details of the product",
         icon: "info",
         showCancelButton: true,
